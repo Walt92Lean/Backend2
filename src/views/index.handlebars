@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        {{#each products.payload}}
+            <div class="col-md-3">
+                <div class="card text-center border-0 fw-light">
+                    <a href="/products/{{this.id}}" class="text-decoration-none text-black">
+                        <img src="{{this.thumbnails}}" class="img-fluid" alt="{{this.title}}">
+                        <div class="card-body">
+                            <p class="card-text">{{this.title}}</p>
+                            <p class="card-text">${{this.price}}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {{/each}}
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            {{#if products.hasPrevPage}}
+                <a href="{{products.prevLink}}" class="text-decoration-none mx-3">⬅️</a>
+            {{/if}}
+        
+            {{#if products.page}}
+                <a href="#" class="text-decoration-none mx-3">{{products.page}}</a>
+            {{/if}}
+        
+            {{#if products.hasNextPage}}
+                <a href="{{products.nextLink}}" class="text-decoration-none mx-3">➡️</a>
+            {{/if}}
+        </div>
+    </div>
+</div>
