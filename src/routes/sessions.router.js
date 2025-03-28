@@ -1,12 +1,11 @@
 import { Router } from 'express';
 import passport from 'passport';
-import userModel from '../models/user.model.js'
-import { isValidPassword, generateJWToken } from '../utils.js'
+import userModel from '../models/user.model.js';
+import { isValidPassword, generateJWToken } from '../utils.js';
 
 const router = Router();
 
-
-
+// Ruta para registrar un nuevo usuario
 router.post("/register",
     passport.authenticate('register', { failureRedirect: '/api/sessions/fail-register' }),
     async (req, res) => {
