@@ -56,7 +56,7 @@ const initializePassport = () => {
                 const user = {
                     first_name,
                     last_name,
-                    username,
+                    email,
                     age,
                     password: createHash(password),
                     loggedBy: "App"

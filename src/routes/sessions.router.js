@@ -6,7 +6,10 @@ import { isValidPassword, generateJWToken } from '../utils.js';
 const router = Router();
 
 // Ruta para registrar un nuevo usuario
-router.post("/register",
+router.post("/register",    (req, res, next) => {
+    console.log("Datos recibidos en /register:", req.body); // 🔍 Verifica qué datos llegan
+    next(); // Pasa al siguiente middleware (Passport)
+},
     passport.authenticate('register', { failureRedirect: '/api/sessions/fail-register' }),
     async (req, res) => {
         console.log("Registrando nuevo usuario.");

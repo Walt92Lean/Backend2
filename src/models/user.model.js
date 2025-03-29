@@ -7,6 +7,7 @@ const schema = new mongoose.Schema({
     last_name: String,
     email:{
         type: String,
+        required: true,
         unique: true
     },
     age:Number,
