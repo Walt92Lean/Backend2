@@ -15,7 +15,6 @@ import initializePassport from "./config/passport.config.js";
 import sessionsRouter from "./routes/sessions.router.js";
 import usersViewRouter from "./routes/users.views.router.js"; 
 import productsRouter from "./routes/productRouter.js";
-import cartsRouter from "./routes/cartsRouter.js";
 import viewsRouter from "./routes/viewsRouter.js";
 import ProductManager from "./classes/ProductManager.js";
 
@@ -35,6 +34,11 @@ app.set("view engine", "handlebars");
 app.use(express.static(__dirname + "/public"));
 
 // 
+
+//Cookies
+//router.use(cookieParser());
+app.use(cookieParser("CoderS3cr3tC0d3"));
+
 app.use(session({
     secret: "secretcode",
     resave: false,
@@ -48,11 +52,9 @@ app.use(session({
 // 
 initializePassport();
 app.use(passport.initialize());
-app.use(passport.session());
 
 // Routers
 app.use("/api/products", productsRouter);
-app.use("/api/carts", cartsRouter);
 app.use("/", viewsRouter);
 app.use("/users", usersViewRouter);
 app.use("/api/sessions", sessionsRouter);

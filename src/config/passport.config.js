@@ -3,7 +3,7 @@ import passportLocal from 'passport-local';
 import jwtStrategy from 'passport-jwt';
 
 import userModel from '../models/user.model.js';
-import { createHash, PRIVATE_KEY, cookieExtractor, isValidPassword } from '../utils.js';
+import { createHash, PRIVATE_KEY, cookieExtractor } from '../utils.js';
 
 
 //Declaramos nuestra estrategia:
